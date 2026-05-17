@@ -5,95 +5,190 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lei Yu | leiyu.ink</title>
     <style>
+        /* CSS Reset & Variables */
+        :root {
+            --bg-color: #fcfcfc;
+            --text-color: #111111;
+            --link-color: #0000ff;
+            --font-serif: "Georgia", "Times New Roman", serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #fafafa;
-            color: #111;
-            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-serif); /* 核心内容使用学术衬线体 */
+            line-height: 1.5;
+            font-size: 16px;
+        }
+
+        /* Asymmetrical Two-column Layout */
+        .wrapper {
+            display: flex;
+            max-width: 1100px;
             margin: 0 auto;
-            max-width: 800px;
-            padding: 80px 20px;
+            padding: 8vh 5vw;
         }
-        h1 {
-            font-family: "Georgia", serif;
-            font-size: 2.5rem;
+
+        /* Left Sidebar: Sticky & Minimal */
+        .sidebar {
+            width: 30%;
+            position: sticky;
+            top: 8vh;
+            height: fit-content;
+            padding-right: 3rem;
+            font-family: var(--font-sans); /* 导航和元数据使用无衬线体制造对比 */
+            font-size: 0.85rem;
+        }
+
+        .sidebar h1 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
             font-weight: normal;
-            margin-bottom: 0.5rem;
+            margin: 0 0 0.2rem 0;
+            letter-spacing: -0.02em;
         }
-        h2 {
-            font-size: 1rem;
+
+        .sidebar .title {
+            color: #666;
+            margin-bottom: 2.5rem;
+            line-height: 1.4;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2.5rem 0;
+        }
+
+        .sidebar nav li {
+            margin-bottom: 0.6rem;
+        }
+
+        .sidebar a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            color: var(--link-color); /* 鼠标悬浮呈现克制的蓝色 */
+        }
+
+        .contact {
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* Right Content: Scrolling & Dense */
+        .content {
+            width: 70%;
+            max-width: 650px;
+        }
+
+        .content section {
+            margin-bottom: 5rem;
+        }
+
+        .content h2 {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            font-weight: normal;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-            margin-top: 60px;
-            margin-bottom: 20px;
-        }
-        .subtitle {
-            font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 40px;
             font-weight: 500;
+            color: #888;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
         }
-        a {
-            color: #111;
-            text-decoration: none;
-            border-bottom: 1px solid #ccc;
-            transition: border-bottom 0.3s ease;
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
         }
-        a:hover {
-            border-bottom: 1px solid #111;
+
+        .content .highlight {
+            font-weight: bold;
         }
-        ul {
-            list-style-type: none;
+
+        /* Hanging Indent for Publications & Media */
+        .item-list {
+            list-style: none;
             padding: 0;
         }
-        li {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
+
+        .item-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 1.5rem;
+            text-indent: -1.5rem; 
         }
-        p {
-            font-size: 1.05rem;
-            color: #333;
-        }
-        .contact {
-            margin-top: 80px;
-            font-size: 0.9rem;
-            color: #777;
+
+        /* Mobile Responsiveness */
+        @media (max-width: 800px) {
+            .wrapper {
+                flex-direction: column;
+                padding: 5vh 8vw;
+            }
+            .sidebar {
+                width: 100%;
+                position: relative;
+                top: 0;
+                margin-bottom: 3rem;
+                padding-right: 0;
+            }
+            .content {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Lei Yu</h1>
-        <div class="subtitle">Ph.D. Candidate | AI Alignment Specialist | Media Strategist</div>
-    </header>
+    <div class="wrapper">
+        <aside class="sidebar">
+            <h1>Lei Yu</h1>
+            <div class="title">
+                Ph.D. Candidate<br>
+                AI Alignment Specialist<br>
+                Media Strategist
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#workflows">Workflows</a></li>
+                    <li><a href="#publications">Selected Output</a></li>
+                </ul>
+            </nav>
 
-    <section>
-        <p>As a <strong>Ph.D. Candidate in Comparative Literature</strong>, I operate as a high-fidelity data engine bridging extreme literary precision with AI engineering and media production. Fluent in English, Mandarin, French, and Italian, I specialize in semantic evaluation, cross-cultural alignment, and end-to-end content strategy.</p>
-    </section>
+            <div class="contact">
+                <a href="mailto:1996leiyu@gmail.com">1996leiyu@gmail.com</a><br>
+                Toronto, ON
+            </div>
+        </aside>
 
-    <section>
-        <h2>Technical & Creative Workflows</h2>
-        <ul>
-            <li>AI Evaluation: LLM Benchmarking, Hallucination Mitigation, Creative Prose Evaluation, RLHF.</li>
-            <li>Multimodal Pipelines: Generative AI workflows, Speech Synthesis, Python scripting for automation.</li>
-            <li>Content Strategy: End-to-end production for digital platforms, algorithm optimization, and creator relations.</li>
-        </ul>
-    </section>
+        <main class="content">
+            <section id="about">
+                <h2>Background</h2>
+                <p>As a <span class="highlight">Ph.D. Candidate in Comparative Literature at the University of Toronto</span>, I operate as a high-fidelity data engine bridging extreme literary precision with AI engineering and media production. Fluent in English, Mandarin, French, and Italian, I specialize in semantic evaluation, cross-cultural alignment, and end-to-end content strategy.</p>
+            </section>
 
-    <section>
-        <h2>Selected Output</h2>
-        <ul>
-            <li>How AI Turned Description into an Everyday Skill — The Conversation (Under Review)</li>
-            <li>Good Vibes Only? The Shared Emotions We Don't Quite Name — The Conversation (2025)</li>
-            <li>值得表扬 (Café au Lei) — Independent Podcast Host & Producer</li>
-        </ul>
-    </section>
+            <section id="workflows">
+                <h2>Technical & Creative Workflows</h2>
+                <p><strong>AI Evaluation & Alignment:</strong> Implementing LLM Benchmarking, Hallucination Mitigation, Creative Prose Evaluation, and RLHF protocols. I codify subjective aesthetic values—style, tone, and voice—into actionable, machine-readable rubrics.</p>
+                <p><strong>Multimodal Pipelines:</strong> Executing generative AI workflows (Midjourney), advanced speech synthesis (ElevenLabs, Whisper ASR), and workflow automation via Python scripting to push the boundaries of machine-generated content.</p>
+                <p><strong>Content Strategy:</strong> Directing end-to-end production for digital platforms. I manage algorithm optimization, creator relations, and full-stack media generation, leveraging tools such as Descript and Riverside.fm.</p>
+            </section>
 
-    <div class="contact">
-        Toronto, ON | <a href="mailto:1996leiyu@gmail.com">1996leiyu@gmail.com</a>
+            <section id="publications">
+                <h2>Publications & Media</h2>
+                <ul class="item-list">
+                    <li>Yu, Lei. <em>How AI Turned Description into an Everyday Skill</em>. The Conversation (Under Review).</li>
+                    <li>Yu, Lei. <em>Good Vibes Only? The Shared Emotions We Don't Quite Name</em>. The Conversation, 2025.</li>
+                    <li><strong>值得表扬 (Café au Lei)</strong> — Independent Podcast Host & Producer. A Mandarin-language podcast translating specialized literary and technological topics into accessible, high-retention discussions for broad audiences.</li>
+                </ul>
+            </section>
+        </main>
     </div>
 </body>
 </html>
