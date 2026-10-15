@@ -517,11 +517,18 @@
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
+            text-decoration: none;
+            color: inherit;
         }
 
         .publication-item:hover {
             border-color: var(--border-hover);
-            box-shadow: var(--shadow-sm);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .publication-item:hover .pub-title {
+            color: var(--accent);
         }
 
         .pub-header {
@@ -787,13 +794,13 @@
             <section id="publications">
                 <div class="section-label">04 / Publications &amp; Selected Output</div>
                 <div class="publications-list">
-                    <div class="publication-item">
+                    <a href="https://pancouver.ca/how-ai-prompting-turned-writerly-description-into-an-everyday-skill/" target="_blank" rel="noopener" class="publication-item">
                         <div class="pub-header">
-                            <div class="pub-title">How AI Turned Description into an Everyday Skill</div>
-                            <span class="pub-status status-under-review">Under Review</span>
+                            <div class="pub-title">How AI Prompting Turned Writerly Description into an Everyday Skill</div>
+                            <span class="pub-status status-published">Published &middot; 2026</span>
                         </div>
-                        <div class="pub-venue">Yu, Lei. The Conversation.</div>
-                    </div>
+                        <div class="pub-venue">Yu, Lei. <em>Pancouver</em> &mdash; Read Article &rarr;</div>
+                    </a>
 
                     <div class="publication-item">
                         <div class="pub-header">
