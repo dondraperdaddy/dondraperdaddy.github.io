@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lei Yu | AI Alignment, Comparative Literature & Media</title>
-    <meta name="description" content="Personal portfolio of Lei Yu ‚Äî Ph.D. Candidate in Comparative Literature, AI Alignment Specialist, and Host of Caf√© au Lei (ÂÄºÂæóË°®Êâ¨).">
+    <meta name="description" content="Personal portfolio of Lei Yu &mdash; Ph.D. Candidate in Comparative Literature, AI Alignment Specialist, and Host of Cafe au Lei (&#20540;&#24471;&#34920;&#25196;).">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -248,6 +248,12 @@
             color: var(--text-primary);
         }
 
+        .theme-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         /* Main Content */
         .main-content {
             display: flex;
@@ -407,11 +413,12 @@
         }
 
         .podcast-brand {
-            font-family: var(--font-display);
+            font-family: var(--font-display), "Songti SC", "SimSun", serif;
             font-size: 2.5rem;
             line-height: 1.1;
             color: var(--text-primary);
             margin-bottom: 0.35rem;
+            letter-spacing: 0.02em;
         }
 
         .podcast-en-title {
@@ -470,7 +477,7 @@
             font-family: var(--font-sans);
             font-size: 0.8rem;
             font-weight: 500;
-            padding: 0.4rem 0.85rem;
+            padding: 0.45rem 0.9rem;
             border-radius: 6px;
             background: var(--bg-surface);
             border: 1px solid var(--border-color);
@@ -479,7 +486,13 @@
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.5rem;
+        }
+
+        .channel-link svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
         }
 
         .channel-link:hover {
@@ -613,14 +626,13 @@
                 <h1>Lei Yu</h1>
                 <div class="role-tagline">
                     Comparative Literature Ph.D. Candidate,<br>
-                    AI Alignment Specialist & Media Producer
+                    AI Alignment Specialist &amp; Media Producer
                 </div>
                 
-                <div class="languages-list" title="Spoken & Research Languages">
+                <div class="languages-list" title="Spoken &amp; Research Languages">
                     <span class="lang-chip">English</span>
-                    <span class="lang-chip">Mandarin (‰∏≠Êñá)</span>
-                    <span class="lang-chip">Fran√ßais</span>
-                    <span class="lang-chip">Italiano</span>
+                    <span class="lang-chip">Mandarin (&#20013;&#25991;)</span>
+                    <span class="lang-chip">Fran&#231;ais</span>
                 </div>
             </div>
 
@@ -630,15 +642,15 @@
                     <span class="nav-num">01</span>
                 </a>
                 <a href="#workflows">
-                    <span>Technical & Creative Workflows</span>
+                    <span>Technical &amp; Creative Workflows</span>
                     <span class="nav-num">02</span>
                 </a>
                 <a href="#podcast">
-                    <span>Podcast (ÂÄºÂæóË°®Êâ¨)</span>
+                    <span>Podcast (&#20540;&#24471;&#34920;&#25196;)</span>
                     <span class="nav-num">03</span>
                 </a>
                 <a href="#publications">
-                    <span>Publications & Output</span>
+                    <span>Publications &amp; Output</span>
                     <span class="nav-num">04</span>
                 </a>
             </nav>
@@ -659,7 +671,10 @@
             </div>
 
             <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark/light mode">
-                <span id="themeIcon">üåì</span>
+                <span class="theme-icon" id="themeIcon">
+                    <!-- Moon SVG -->
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </span>
                 <span id="themeText">Toggle Theme</span>
             </button>
         </aside>
@@ -671,26 +686,26 @@
                 <div class="section-label">01 / Background</div>
                 <div class="editorial-hero">
                     <div class="lead-quote">
-                        "Bridging extreme literary precision with AI engineering and media production."
+                        &ldquo;Bridging extreme literary precision with AI engineering and media production.&rdquo;
                     </div>
                     <div class="bio-body">
-                        As a <strong>Ph.D. Candidate in Comparative Literature at the University of Western Ontario</strong>, I operate as a high-fidelity data engine translating subjective human aesthetics into machine-readable benchmarks. Fluent in English, Mandarin, French, and Italian, my work intersects semantic evaluation, cross-cultural model alignment, and end-to-end multimodal content strategy.
+                        As a <strong>Ph.D. Candidate in Comparative Literature at the University of Western Ontario</strong>, I operate as a high-fidelity data engine translating subjective human aesthetics into machine-readable benchmarks. Fluent in English, Mandarin, and French, my work intersects semantic evaluation, cross-cultural model alignment, and end-to-end multimodal content strategy.
                     </div>
                 </div>
             </section>
 
             <!-- Workflows Section -->
             <section id="workflows">
-                <div class="section-label">02 / Technical & Creative Workflows</div>
+                <div class="section-label">02 / Technical &amp; Creative Workflows</div>
                 <div class="workflows-grid">
                     <!-- Workflow 1 -->
                     <div class="workflow-card">
                         <div class="card-header">
-                            <h3 class="card-title">AI Evaluation & Alignment</h3>
-                            <span class="card-badge">LLM & RLHF</span>
+                            <h3 class="card-title">AI Evaluation &amp; Alignment</h3>
+                            <span class="card-badge">LLM &amp; RLHF</span>
                         </div>
                         <p class="card-desc">
-                            Implementing LLM Benchmarking, Hallucination Mitigation, Creative Prose Evaluation, and RLHF protocols. I codify subtle aesthetic values‚Äîstyle, tone, voice, and nuance‚Äîinto actionable, rigorous evaluation rubrics.
+                            Implementing LLM Benchmarking, Hallucination Mitigation, Creative Prose Evaluation, and RLHF protocols. I codify subtle aesthetic values&mdash;style, tone, voice, and nuance&mdash;into actionable, rigorous evaluation rubrics.
                         </p>
                         <div class="pill-tags">
                             <span class="pill-tag">RLHF</span>
@@ -703,8 +718,8 @@
                     <!-- Workflow 2 -->
                     <div class="workflow-card">
                         <div class="card-header">
-                            <h3 class="card-title">Multimodal Audio & Synthesis Pipelines</h3>
-                            <span class="card-badge">Audio & Scripting</span>
+                            <h3 class="card-title">Multimodal Audio &amp; Synthesis Pipelines</h3>
+                            <span class="card-badge">Audio &amp; Scripting</span>
                         </div>
                         <p class="card-desc">
                             Executing generative AI workflows (Midjourney), advanced speech synthesis (ElevenLabs, Whisper ASR), and automated audio engineering pipelines via Python scripting to streamline media creation and push the boundary of machine-assisted narrative.
@@ -720,7 +735,7 @@
                     <!-- Workflow 3 -->
                     <div class="workflow-card">
                         <div class="card-header">
-                            <h3 class="card-title">Digital Content Strategy & Direction</h3>
+                            <h3 class="card-title">Digital Content Strategy &amp; Direction</h3>
                             <span class="card-badge">Production</span>
                         </div>
                         <p class="card-desc">
@@ -741,25 +756,28 @@
                 <div class="section-label">03 / Independent Podcast</div>
                 <div class="podcast-card">
                     <div class="podcast-badge-row">
-                        <span class="card-badge" style="background: var(--bg-surface);">Host & Producer</span>
+                        <span class="card-badge" style="background: var(--bg-surface);">Host &amp; Producer</span>
                         <div class="audio-wave-bar" title="Audio Waveform">
                             <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
                         </div>
                     </div>
-                    <h2 class="podcast-brand">ÂÄºÂæóË°®Êâ¨</h2>
-                    <div class="podcast-en-title">Caf√© au Lei ‚Äî Independent Podcast</div>
+                    <h2 class="podcast-brand">&#20540;&#24471;&#34920;&#25196;</h2>
+                    <div class="podcast-en-title">Caf&eacute; au Lei &mdash; Independent Podcast</div>
                     <p class="podcast-desc">
                         An independent Mandarin-language podcast translating specialized literary, philosophical, and technological topics into accessible, high-retention discussions for broad audiences.
                     </p>
                     <div class="podcast-channels">
                         <a href="https://leiyu.ink" class="channel-link" target="_blank" rel="noopener">
-                            <span>üéß Â∞èÂÆáÂÆô (Xiaoyuzhou)</span>
+                            <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                            <span>Xiaoyuzhou (&#23567;&#23431;&#23449;)</span>
                         </a>
                         <a href="https://leiyu.ink" class="channel-link" target="_blank" rel="noopener">
-                            <span>üéô Apple Podcasts</span>
+                            <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.14.65-2.8 1.42-.58.67-1.1 1.74-1.02 2.79 1.07.08 2.2-.59 2.81-1.34z"/></svg>
+                            <span>Apple Podcasts</span>
                         </a>
                         <a href="https://leiyu.ink" class="channel-link" target="_blank" rel="noopener">
-                            <span>üìª Spotify</span>
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 5.522 4.477 10 10 10s10-4.478 10-10c0-5.523-4.477-10-10-10zm4.586 14.424c-.18.295-.563.387-.857.207-2.35-1.434-5.308-1.758-8.793-.963-.335.077-.67-.133-.746-.469-.077-.334.132-.67.467-.746 3.808-.87 7.076-.496 9.721 1.12.294.18.388.563.208.851zm1.223-2.72c-.226.367-.706.482-1.072.257-2.687-1.652-6.785-2.131-9.965-1.166-.413.127-.849-.107-.976-.52-.127-.414.108-.85.521-.977 3.632-1.102 8.147-.568 11.235 1.332.366.226.481.707.257 1.074zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71c-.493.15-1.016-.129-1.166-.623-.149-.495.13-1.016.624-1.167 3.532-1.073 9.404-.866 13.115 1.338.445.264.59.838.327 1.282-.264.443-.838.59-1.282.327z"/></svg>
+                            <span>Spotify</span>
                         </a>
                     </div>
                 </div>
@@ -767,7 +785,7 @@
 
             <!-- Publications & Output Section -->
             <section id="publications">
-                <div class="section-label">04 / Publications & Selected Output</div>
+                <div class="section-label">04 / Publications &amp; Selected Output</div>
                 <div class="publications-list">
                     <div class="publication-item">
                         <div class="pub-header">
@@ -780,7 +798,7 @@
                     <div class="publication-item">
                         <div class="pub-header">
                             <div class="pub-title">Good Vibes Only? The Shared Emotions We Don't Quite Name</div>
-                            <span class="pub-status status-published">Published ¬∑ 2025</span>
+                            <span class="pub-status status-published">Published &middot; 2025</span>
                         </div>
                         <div class="pub-venue">Yu, Lei. The Conversation.</div>
                     </div>
@@ -789,8 +807,8 @@
 
             <!-- Footer -->
             <footer class="page-footer">
-                <div>¬© 2026 Lei Yu (‰ΩôÁ£ä) ¬∑ leiyu.ink</div>
-                <div>Designed with literary precision & typography</div>
+                <div>&copy; 2026 Lei Yu (&#20313;&#30922;) &middot; leiyu.ink</div>
+                <div>Designed with literary precision &amp; typography</div>
             </footer>
         </main>
     </div>
@@ -800,6 +818,9 @@
         const themeToggleBtn = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const themeText = document.getElementById('themeText');
+
+        const sunSVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+        const moonSVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
 
         // Check user system preference or saved preference
         const savedTheme = localStorage.getItem('theme');
@@ -822,7 +843,7 @@
         });
 
         function updateToggleUI(isDark) {
-            themeIcon.textContent = isDark ? '‚òÄÔ∏è' : 'üåô';
+            themeIcon.innerHTML = isDark ? sunSVG : moonSVG;
             themeText.textContent = isDark ? 'Light Mode' : 'Dark Mode';
         }
     </script>
