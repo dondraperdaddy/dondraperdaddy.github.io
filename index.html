@@ -3,192 +3,828 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lei Yu | leiyu.ink</title>
+    <title>Lei Yu | AI Alignment, Comparative Literature & Media</title>
+    <meta name="description" content="Personal portfolio of Lei Yu ‚Äî Ph.D. Candidate in Comparative Literature, AI Alignment Specialist, and Host of Caf√© au Lei (ÂÄºÂæóË°®Êâ¨).">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* CSS Reset & Variables */
         :root {
-            --bg-color: #fcfcfc;
-            --text-color: #111111;
-            --link-color: #0000ff;
-            --font-serif: "Georgia", "Times New Roman", serif;
-            --font-sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --bg-primary: #FAF8F5;
+            --bg-surface: #FFFFFF;
+            --bg-subtle: #F2EFE9;
+            --border-color: #E6E1D8;
+            --border-hover: #C5BFB4;
+            --text-primary: #1A1917;
+            --text-secondary: #57544E;
+            --text-muted: #87837A;
+            --accent: #C2410C;
+            --accent-soft: rgba(194, 65, 12, 0.08);
+            --accent-blue: #1D4ED8;
+            --accent-blue-soft: rgba(29, 78, 216, 0.08);
+            
+            --font-serif: "Newsreader", Georgia, serif;
+            --font-display: "Instrument Serif", Georgia, serif;
+            --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            --font-mono: "JetBrains Mono", monospace;
+
+            --shadow-sm: 0 1px 2px rgba(26, 25, 23, 0.04);
+            --shadow-md: 0 4px 12px rgba(26, 25, 23, 0.06);
+            --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #121211;
+            --bg-surface: #1B1A18;
+            --bg-subtle: #242220;
+            --border-color: #2E2C29;
+            --border-hover: #484541;
+            --text-primary: #EDEAE4;
+            --text-secondary: #A8A49C;
+            --text-muted: #6E6B64;
+            --accent: #FB923C;
+            --accent-soft: rgba(251, 146, 60, 0.12);
+            --accent-blue: #60A5FA;
+            --accent-blue-soft: rgba(96, 165, 250, 0.12);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            font-family: var(--font-serif); 
-            line-height: 1.5;
-            font-size: 16px;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 15px;
+            line-height: 1.65;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Asymmetrical Two-column Layout */
-        .wrapper {
-            display: flex;
-            max-width: 1100px;
+        /* Layout Container */
+        .page-wrapper {
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 8vh 5vw;
+            padding: 5rem 2rem 6rem;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 5rem;
+            position: relative;
         }
 
-        /* Left Sidebar: Sticky & Minimal */
+        /* Sticky Left Column */
         .sidebar {
-            width: 30%;
             position: sticky;
-            top: 8vh;
+            top: 4rem;
             height: fit-content;
-            padding-right: 3rem;
-            font-family: var(--font-sans); 
-            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
-        .sidebar h1 {
-            font-family: var(--font-serif);
-            font-size: 2.2rem;
-            font-weight: normal;
-            margin: 0 0 0.2rem 0;
-            letter-spacing: -0.02em;
+        /* Status Pill */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.75rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            width: fit-content;
+            box-shadow: var(--shadow-sm);
         }
 
-        .sidebar .title {
-            color: #666;
-            margin-bottom: 2.5rem;
-            line-height: 1.4;
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #10B981;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+            animation: pulse 2.5s infinite;
         }
 
-        .sidebar nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 2.5rem 0;
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.15); }
         }
 
-        .sidebar nav li {
+        /* Header Identity */
+        .profile h1 {
+            font-family: var(--font-display);
+            font-size: 3.2rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            line-height: 1.05;
+            color: var(--text-primary);
             margin-bottom: 0.6rem;
         }
 
-        .sidebar a {
-            color: var(--text-color);
+        .profile .role-tagline {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin-bottom: 1.2rem;
+        }
+
+        .languages-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .lang-chip {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            padding: 0.15rem 0.45rem;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-secondary);
+        }
+
+        /* Sidebar Nav */
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 0;
+        }
+
+        .sidebar-nav a {
+            color: var(--text-secondary);
             text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.35rem 0.5rem;
+            border-radius: 6px;
+            transition: var(--transition);
         }
 
-        .sidebar a:hover {
-            color: var(--link-color); 
+        .sidebar-nav a:hover {
+            color: var(--text-primary);
+            background: var(--bg-surface);
+            padding-left: 0.75rem;
         }
 
-        .contact {
-            color: #777;
-            line-height: 1.6;
+        .sidebar-nav a .nav-num {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
         }
 
-        /* Right Content: Scrolling & Dense */
-        .content {
-            width: 70%;
-            max-width: 650px;
+        /* Contact Details */
+        .sidebar-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
         }
 
-        .content section {
-            margin-bottom: 5rem;
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .content h2 {
+        .meta-item a {
+            color: var(--text-primary);
+            text-decoration: underline;
+            text-decoration-color: var(--border-color);
+            text-underline-offset: 3px;
+            transition: var(--transition);
+        }
+
+        .meta-item a:hover {
+            text-decoration-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle-btn {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.45rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: fit-content;
             font-family: var(--font-sans);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4.5rem;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        /* About / Statement */
+        .editorial-hero {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.25rem;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .editorial-hero::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--accent);
+        }
+
+        .lead-quote {
+            font-family: var(--font-serif);
+            font-size: 1.55rem;
+            line-height: 1.45;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+            font-weight: 400;
+        }
+
+        .bio-body {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .bio-body strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Workflows Grid */
+        .workflows-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        .workflow-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .workflow-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .card-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
             font-weight: 500;
-            color: #888;
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .card-badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background: var(--bg-subtle);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        .card-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .pill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: auto;
+            padding-top: 0.75rem;
+        }
+
+        .pill-tag {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            background: var(--bg-subtle);
+            color: var(--text-secondary);
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+        }
+
+        /* Featured Podcast Card */
+        .podcast-card {
+            background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-subtle) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 2.25rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .podcast-badge-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .podcast-brand {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+        }
+
+        .podcast-en-title {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .podcast-desc {
+            font-size: 0.94rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 580px;
             margin-bottom: 1.5rem;
         }
 
-        .content p {
-            margin-bottom: 1.5rem;
-            text-align: justify;
+        /* Audio Wave Simulation */
+        .audio-wave-bar {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            height: 24px;
+            padding: 0 0.5rem;
         }
 
-        .content .highlight {
-            font-weight: bold;
+        .audio-wave-bar span {
+            width: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+            animation: soundWave 1.4s ease-in-out infinite;
         }
 
-        /* Hanging Indent for Publications & Media */
-        .item-list {
-            list-style: none;
-            padding: 0;
+        .audio-wave-bar span:nth-child(2) { animation-delay: 0.15s; }
+        .audio-wave-bar span:nth-child(3) { animation-delay: 0.3s; }
+        .audio-wave-bar span:nth-child(4) { animation-delay: 0.45s; }
+        .audio-wave-bar span:nth-child(5) { animation-delay: 0.6s; }
+        .audio-wave-bar span:nth-child(6) { animation-delay: 0.2s; }
+        .audio-wave-bar span:nth-child(7) { animation-delay: 0.5s; }
+        .audio-wave-bar span:nth-child(8) { animation-delay: 0.35s; }
+
+        @keyframes soundWave {
+            0%, 100% { height: 4px; }
+            50% { height: 20px; }
         }
 
-        .item-list li {
-            margin-bottom: 1.2rem;
-            padding-left: 1.5rem;
-            text-indent: -1.5rem; 
+        .podcast-channels {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            align-items: center;
+        }
+
+        .channel-link {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.4rem 0.85rem;
+            border-radius: 6px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .channel-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* Publications Section */
+        .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .publication-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem 1.75rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .publication-item:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pub-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .pub-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.35;
+        }
+
+        .pub-status {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        .status-under-review {
+            background: var(--accent-soft);
+            color: var(--accent);
+            border: 1px solid rgba(194, 65, 12, 0.2);
+        }
+
+        .status-published {
+            background: var(--accent-blue-soft);
+            color: var(--accent-blue);
+            border: 1px solid rgba(29, 78, 216, 0.2);
+        }
+
+        .pub-venue {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Footer */
+        .page-footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
         }
 
         /* Mobile Responsiveness */
-        @media (max-width: 800px) {
-            .wrapper {
-                flex-direction: column;
-                padding: 5vh 8vw;
+        @media (max-width: 900px) {
+            .page-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3.5rem;
+                padding: 3rem 1.25rem 4rem;
             }
+
             .sidebar {
-                width: 100%;
                 position: relative;
                 top: 0;
-                margin-bottom: 3rem;
-                padding-right: 0;
             }
-            .content {
-                width: 100%;
+
+            .profile h1 {
+                font-size: 2.8rem;
+            }
+
+            .editorial-hero {
+                padding: 1.5rem;
+            }
+
+            .lead-quote {
+                font-size: 1.3rem;
+            }
+
+            .page-footer {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: flex-start;
             }
         }
     </style>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="page-wrapper">
+        <!-- Sidebar -->
         <aside class="sidebar">
-            <h1>Lei Yu</h1>
-            <div class="title">
-                Ph.D. Candidate<br>
-                AI Alignment Specialist<br>
-                Media Strategist
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span>Open for Collaboration</span>
             </div>
-            
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#workflows">Workflows</a></li>
-                    <li><a href="#publications">Selected Output</a></li>
-                </ul>
+
+            <div class="profile">
+                <h1>Lei Yu</h1>
+                <div class="role-tagline">
+                    Comparative Literature Ph.D. Candidate,<br>
+                    AI Alignment Specialist & Media Producer
+                </div>
+                
+                <div class="languages-list" title="Spoken & Research Languages">
+                    <span class="lang-chip">English</span>
+                    <span class="lang-chip">Mandarin (‰∏≠Êñá)</span>
+                    <span class="lang-chip">Fran√ßais</span>
+                    <span class="lang-chip">Italiano</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#about">
+                    <span>Background</span>
+                    <span class="nav-num">01</span>
+                </a>
+                <a href="#workflows">
+                    <span>Technical & Creative Workflows</span>
+                    <span class="nav-num">02</span>
+                </a>
+                <a href="#podcast">
+                    <span>Podcast (ÂÄºÂæóË°®Êâ¨)</span>
+                    <span class="nav-num">03</span>
+                </a>
+                <a href="#publications">
+                    <span>Publications & Output</span>
+                    <span class="nav-num">04</span>
+                </a>
             </nav>
 
-            <div class="contact">
-                <a href="mailto:1996leiyu@gmail.com">1996leiyu@gmail.com</a><br>
-                Toronto, ON
+            <div class="sidebar-footer">
+                <div class="meta-item">
+                    <span>Location:</span>
+                    <strong>Toronto, ON</strong>
+                </div>
+                <div class="meta-item">
+                    <span>Affiliation:</span>
+                    <strong>Western University</strong>
+                </div>
+                <div class="meta-item">
+                    <span>Contact:</span>
+                    <a href="mailto:1996leiyu@gmail.com">1996leiyu@gmail.com</a>
+                </div>
             </div>
+
+            <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark/light mode">
+                <span id="themeIcon">üåì</span>
+                <span id="themeText">Toggle Theme</span>
+            </button>
         </aside>
 
-        <main class="content">
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Background Section -->
             <section id="about">
-                <h2>Background</h2>
-                <p>As a <span class="highlight">Ph.D. Candidate in Comparative Literature at the University of Western Ontario</span>, I operate as a high-fidelity data engine bridging extreme literary precision with AI engineering and media production. Fluent in English, Mandarin, French, and Italian, I specialize in semantic evaluation, cross-cultural alignment, and end-to-end content strategy.</p>
+                <div class="section-label">01 / Background</div>
+                <div class="editorial-hero">
+                    <div class="lead-quote">
+                        "Bridging extreme literary precision with AI engineering and media production."
+                    </div>
+                    <div class="bio-body">
+                        As a <strong>Ph.D. Candidate in Comparative Literature at the University of Western Ontario</strong>, I operate as a high-fidelity data engine translating subjective human aesthetics into machine-readable benchmarks. Fluent in English, Mandarin, French, and Italian, my work intersects semantic evaluation, cross-cultural model alignment, and end-to-end multimodal content strategy.
+                    </div>
+                </div>
             </section>
 
+            <!-- Workflows Section -->
             <section id="workflows">
-                <h2>Technical & Creative Workflows</h2>
-                <p><strong>AI Evaluation & Alignment:</strong> Implementing LLM Benchmarking, Hallucination Mitigation, Creative Prose Evaluation, and RLHF protocols. I codify subjective aesthetic values—style, tone, and voice—into actionable, machine-readable rubrics.</p>
-                <p><strong>Multimodal Pipelines:</strong> Executing generative AI workflows (Midjourney), advanced speech synthesis (ElevenLabs, Whisper ASR), and workflow automation via Python scripting to push the boundaries of machine-generated content.</p>
-                <p><strong>Content Strategy:</strong> Directing end-to-end production for digital platforms. I manage algorithm optimization, creator relations, and full-stack media generation, leveraging tools such as Descript and Riverside.fm.</p>
+                <div class="section-label">02 / Technical & Creative Workflows</div>
+                <div class="workflows-grid">
+                    <!-- Workflow 1 -->
+                    <div class="workflow-card">
+                        <div class="card-header">
+                            <h3 class="card-title">AI Evaluation & Alignment</h3>
+                            <span class="card-badge">LLM & RLHF</span>
+                        </div>
+                        <p class="card-desc">
+                            Implementing LLM Benchmarking, Hallucination Mitigation, Creative Prose Evaluation, and RLHF protocols. I codify subtle aesthetic values‚Äîstyle, tone, voice, and nuance‚Äîinto actionable, rigorous evaluation rubrics.
+                        </p>
+                        <div class="pill-tags">
+                            <span class="pill-tag">RLHF</span>
+                            <span class="pill-tag">Hallucination Mitigation</span>
+                            <span class="pill-tag">Prose Benchmark</span>
+                            <span class="pill-tag">Rubric Engineering</span>
+                        </div>
+                    </div>
+
+                    <!-- Workflow 2 -->
+                    <div class="workflow-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Multimodal Audio & Synthesis Pipelines</h3>
+                            <span class="card-badge">Audio & Scripting</span>
+                        </div>
+                        <p class="card-desc">
+                            Executing generative AI workflows (Midjourney), advanced speech synthesis (ElevenLabs, Whisper ASR), and automated audio engineering pipelines via Python scripting to streamline media creation and push the boundary of machine-assisted narrative.
+                        </p>
+                        <div class="pill-tags">
+                            <span class="pill-tag">Whisper ASR</span>
+                            <span class="pill-tag">Python Scripting</span>
+                            <span class="pill-tag">ElevenLabs</span>
+                            <span class="pill-tag">Terminal Automation</span>
+                        </div>
+                    </div>
+
+                    <!-- Workflow 3 -->
+                    <div class="workflow-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Digital Content Strategy & Direction</h3>
+                            <span class="card-badge">Production</span>
+                        </div>
+                        <p class="card-desc">
+                            Directing end-to-end production for digital audio and broadcast platforms. Managing distribution strategies, algorithmic optimization, and full-stack media generation using modern production suites including Descript and Riverside.fm.
+                        </p>
+                        <div class="pill-tags">
+                            <span class="pill-tag">Descript</span>
+                            <span class="pill-tag">Riverside.fm</span>
+                            <span class="pill-tag">Audience Retention</span>
+                            <span class="pill-tag">Editorial Direction</span>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <section id="publications">
-                <h2>Publications & Media</h2>
-                <ul class="item-list">
-                    <li>Yu, Lei. <em>How AI Turned Description into an Everyday Skill</em>. The Conversation (Under Review).</li>
-                    <li>Yu, Lei. <em>Good Vibes Only? The Shared Emotions We Don't Quite Name</em>. The Conversation, 2025.</li>
-                    <li><strong>值得表扬 (Café au Lei)</strong> — Independent Podcast Host & Producer. A Mandarin-language podcast translating specialized literary and technological topics into accessible, high-retention discussions for broad audiences.</li>
-                </ul>
+            <!-- Podcast Spotlight Section -->
+            <section id="podcast">
+                <div class="section-label">03 / Independent Podcast</div>
+                <div class="podcast-card">
+                    <div class="podcast-badge-row">
+                        <span class="card-badge" style="background: var(--bg-surface);">Host & Producer</span>
+                        <div class="audio-wave-bar" title="Audio Waveform">
+                            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <h2 class="podcast-brand">ÂÄºÂæóË°®Êâ¨</h2>
+                    <div class="podcast-en-title">Caf√© au Lei ‚Äî Independent Podcast</div>
+                    <p class="podcast-desc">
+                        An independent Mandarin-language podcast translating specialized literary, philosophical, and technological topics into accessible, high-retention discussions for broad audiences.
+                    </p>
+                    <div class="podcast-channels">
+                        <a href="https://leiyu.ink" class="channel-link" target="_blank" rel="noopener">
+                            <span>üéß Â∞èÂÆáÂÆô (Xiaoyuzhou)</span>
+                        </a>
+                        <a href="https://leiyu.ink" class="channel-link" target="_blank" rel="noopener">
+                            <span>üéô Apple Podcasts</span>
+                        </a>
+                        <a href="https://leiyu.ink" class="channel-link" target="_blank" rel="noopener">
+                            <span>üìª Spotify</span>
+                        </a>
+                    </div>
+                </div>
             </section>
+
+            <!-- Publications & Output Section -->
+            <section id="publications">
+                <div class="section-label">04 / Publications & Selected Output</div>
+                <div class="publications-list">
+                    <div class="publication-item">
+                        <div class="pub-header">
+                            <div class="pub-title">How AI Turned Description into an Everyday Skill</div>
+                            <span class="pub-status status-under-review">Under Review</span>
+                        </div>
+                        <div class="pub-venue">Yu, Lei. The Conversation.</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="pub-header">
+                            <div class="pub-title">Good Vibes Only? The Shared Emotions We Don't Quite Name</div>
+                            <span class="pub-status status-published">Published ¬∑ 2025</span>
+                        </div>
+                        <div class="pub-venue">Yu, Lei. The Conversation.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="page-footer">
+                <div>¬© 2026 Lei Yu (‰ΩôÁ£ä) ¬∑ leiyu.ink</div>
+                <div>Designed with literary precision & typography</div>
+            </footer>
         </main>
     </div>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+
+        // Check user system preference or saved preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            updateToggleUI(true);
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            updateToggleUI(false);
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateToggleUI(newTheme === 'dark');
+        });
+
+        function updateToggleUI(isDark) {
+            themeIcon.textContent = isDark ? '‚òÄÔ∏è' : 'üåô';
+            themeText.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+        }
+    </script>
 </body>
 </html>
